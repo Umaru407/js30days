@@ -53,7 +53,12 @@
                 sec.style.transform=`rotate(${secRotate}deg)`;
                 min.style.transform=`rotate(${minRotate}deg)`;
                 hr.style.transform=`rotate(${hrRorate}deg)`;
-                nowTime.innerHTML=nowHr+":"+nowMin+":"+nowSec;
+                if(nowSec<10){
+                    nowTime.innerHTML=nowHr+":"+nowMin+":0"+nowSec;
+                }else{
+                    nowTime.innerHTML=nowHr+":"+nowMin+":"+nowSec;
+                }
+                
 
                 }
                 setInterval(timeSet,1000);
