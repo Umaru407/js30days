@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="day2.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="clock">
+        <div class="nowTime">11:11:11</div>
+        <div class="clockNum">
+            <span class="time t1">1</span>
+            <span class="time t2">2</span>
+            <span class="time t3">3</span>
+            <span class="time t4">4</span>
+            <span class="time t5">5</span>
+            <span class="time t6">6</span>
+            <span class="time t7">7</span>
+            <span class="time t8">8</span>
+            <span class="time t9">9</span>
+            <span class="time t10">10</span>
+            <span class="time t11">11</span>
+            <span class="time t12">12</span>
+        </div>
+        <div class="clockFace">
+            <div class="test"><div class="hand sec"></div></div>
+            
+            <div class="hand min"></div>
+            <div class="hand hr"></div>
+        </div>
+        <!-- after point -->
+    </div>
     
+    <script>
+        (function(){
+            const sec=document.querySelector('.sec');
+            const min=document.querySelector('.min')
+            const hr=document.querySelector('.hr')
+            const nowTime=document.querySelector('.nowTime')
+            function timeSet(){
+                let time=new Date();
+                
+                let nowSec=time.getSeconds();
+                /* console.log(nowSec) */
+                let nowMin=time.getMinutes();
+                let nowHr=time.getHours();
+                let secRotate=360/60*nowSec;
+                let minRotate=360/60*nowMin+6*(nowSec/60);
+                let hrRorate=360/12*nowHr+30*(nowMin/60);
+                console.log(secRotate);
+                sec.style.transform=`rotate(${secRotate}deg)`;
+                min.style.transform=`rotate(${minRotate}deg)`;
+                hr.style.transform=`rotate(${hrRorate}deg)`;
+                nowTime.innerHTML=nowHr+":"+nowMin+":"+nowSec;
+
+                }
+                setInterval(timeSet,1000);
+        })()
+    </script>
+
 </body>
 </html>
