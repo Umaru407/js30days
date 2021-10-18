@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="03.css">
+</head>
+<body>
+    <h1>Update CSS Variables with <span>JS</span></h1>
+    <div class="control">
+        <label for="spacing">Spacing:</label>
+        <input type="range" id="spacing" min="10" max="200" value="10" data-unit="px">
+        <label for="blur">Blur:</label>
+        <input type="range" id="blur" min="0" max="25" value="0" data-unit="px">
+        <label for="color">Base Color</label>
+        <input type="color" id="color" value="#ffd000">
+    </div>
+    <img src="https://picsum.photos/800/500/?random=1"> 
+
+    <script>
+        ;(function(){
+            let inputs=document.querySelectorAll('input');
+            inputs.forEach(function(item){
+                item.addEventListener('mousemove',changeStyle);
+                item.addEventListener('change',changeStyle)
+            })
+            function changeStyle(e){
+                /* console.log(e.target===this);  true*/ 
+                /* let unit=e.target.dataset.unit||''; */
+                /* document.documentElement.style.setProperty(`--${e.target.id}`,e.target.value+unit) */
+                 document.querySelector('html').style.setProperty(`--${e.target.id}`,e.target.value+(e.target.id==='color'?'':'px'));
+            }
+        })()
+    </script>
+</body>
+</html>
