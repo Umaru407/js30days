@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    overflow: hidden;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.panels{
+    background-color: #eee;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+.panel{
+    flex:1;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+}
+.panel p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    width: 100%;
+    flex: 1;
+    font-size: 4rem;
+    transition: 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+}
+.panel p:first-child{
+    font-size: 3rem;
+    transform: translateY(-100%);
+}
+.panel p:last-child{
+    font-size: 3rem;
+    transform: translateY(100%); 
+}
+.panel.open p:first-child{
+   
+}
+.panel.open p:last-child{
+   
+}
+.open{
+    flex: 5;
+}
+.open p{
+    font-size: 8rem;
+  }
+.open p:first-child{
+    font-size: 5rem;
+} 
+.open p:last-child{
+    font-size: 5rem;
+}
+
+.openActive p:first-child{
+    transform: translateY(0%); 
+    
+}
+.openActive p:last-child{
+    transform: translateY(0%);
+}
+.panel1{
+    background-image: url("https://picsum.photos/1500/1500/?random=1");
+}
+.panel2{
+    background-image: url("https://picsum.photos/1500/1500/?random=2");
+}
+.panel3{
+    background-image: url("https://picsum.photos/1500/1500/?random=3");
+}
+.panel4{
+    background-image: url("https://picsum.photos/1500/1500/?random=4");
+}
+.panel5{
+    background-image: url("https://picsum.photos/1500/1500/?random=5");
+}
