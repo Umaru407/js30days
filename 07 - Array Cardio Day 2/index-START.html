@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪💪</title>
+</head>
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+    // ## Array Cardio Day 2
+
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+
+    // Some and Every Checks
+    // Array.prototype.some() // is at least one person 19 or older?
+    const ans1 = people.some(item => new Date().getUTCFullYear() - item.year > 19);
+    //console.log(ans1);
+
+    // Array.prototype.every() // is everyone 19 or older?
+    const ans2 = people.every(item => new Date().getUTCFullYear() - item.year > 19);
+    //console.log(ans2);
+
+    const comments = [
+      { text: 'n0', id: 523423 },
+      { text: 'n1', id: 823423 },
+      { text: 'n2', id: 2039842 },
+      { text: 'n3', id: 123523 },
+      { text: 'n4', id: 542328 }
+    ];
+    // Array.prototype.find()
+    // Find is like filter, but instead returns just the one you are looking for
+    // find the comment with the ID of 823423
+    const ans3 = comments.find(item => item.id === 823423);     //只會找到第一個
+    //console.log(ans3);
+
+    // Array.prototype.findIndex()
+    // Find the comment with this ID
+    const ans4 = comments.findIndex(item => item.id === 823423);     //只會找到第一個
+    //console.log(ans4);
+    // delete the comment with the ID of 823423  
+    const ans5_1 = comments.slice(0, ans4);
+    const ans5_2 = comments.slice(ans4+1);
+    const ans5 = ans5_1.concat(ans5_2);
+    const ans55 = [...ans5_1, ...ans5_2]
+    //onsole.log(ans5, comments)
+    console.log(ans5[0]===comments[0]);
+
+    const ans6 = comments.splice(ans4, 1)     //ans6為指定被刪除的資料，此方法會造成comments原始資料被刪除
+    //console.log(ans6, comments)
+  </script>
+</body>
+</html>
